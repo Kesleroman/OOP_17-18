@@ -1,5 +1,5 @@
 package udalosti;
 
-public class Turnaj {
+public abstract class Turnaj {
 
 }
