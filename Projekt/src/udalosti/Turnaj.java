@@ -6,12 +6,10 @@ import java.util.List;
 import ludia.HracVSach;
 
 public abstract class Turnaj {
-	private int pocetUcastnikov;
 	
-	private List<HracVSach> ucastnici;
+	protected ArrayList<HracVSach> ucastnici;
 	
 	public Turnaj(int pocetUcastnikov) {
-		this.pocetUcastnikov = pocetUcastnikov;
 		this.ucastnici = new ArrayList<>(pocetUcastnikov);
 	}
 	

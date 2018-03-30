@@ -9,11 +9,16 @@ public class Ucitel extends HracVSach implements CastKruzku{
 	
 	public Ucitel(String meno, String priezvisko) {
 		super(meno, priezvisko);
-		this.setUroven(new Majster());
+		this.setUroven(new Majster(2500)); // TODO
 	}
 	
 	public LokalnyTurnaj vytvoritTurnaj() {
 		LokalnyTurnaj turnaj = new LokalnyTurnaj(skupina.pocetZiakov());
+		
+		for(CastKruzku ucastnik : skupina) {
+			turnaj.registracia( (Ziak)ucastnik );
+		}
+		
 		return turnaj;
 	}
 	
