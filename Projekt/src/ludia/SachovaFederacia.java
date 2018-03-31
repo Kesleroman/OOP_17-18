@@ -14,7 +14,7 @@ public class SachovaFederacia {
 		ArrayList<HracVSach> temp = new ArrayList<HracVSach>(pocetUcastnikov);
 		
 		for(int i = 0; i < pocetUcastnikov; ++i) {
-			temp.add(new HracVSach("Roman", "Slonskyi", new Majster(3000))); //TODO: Random levels, names.
+			temp.add(new HracVSach( i +" Roman", "Slonskyi", new Majster(2500 + (int)(100 * Math.random())))); //TODO: Random levels, names.
 		}
 		
 		return temp;

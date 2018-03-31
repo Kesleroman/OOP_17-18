@@ -16,5 +16,4 @@ public abstract class Turnaj {
 	public void pridatUcastnika(HracVSach hrac) {
 		ucastnici.add(hrac);
 	}
-	
 }

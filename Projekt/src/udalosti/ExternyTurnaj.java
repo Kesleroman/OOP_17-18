@@ -9,7 +9,6 @@ public class ExternyTurnaj extends Turnaj implements RegistraciaDoTurnaju {
 	}
 
 	public void registracia(HracVSach ucastnik) {
-		ucastnik.registrujSaDoETurnaju(this);
+		ucastnik.registrujSaDoTurnaju(this);
 	}
-	
 }

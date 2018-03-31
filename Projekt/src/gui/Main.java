@@ -12,27 +12,29 @@ import javafx.stage.Stage;
 public class Main extends Application{
 	Label label = new Label("LOL!");
 	TextField tfield = new TextField();
-	Button but = new Button();
+	Button zacat = new Button();
 	
 
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("Sachovy kruzok. alpha");
 	
 		FlowPane pane = new FlowPane();
-		Scene scene = new Scene(pane, 640, 480);
+		FlowPane prveOkno = new FlowPane();
+		Scene scene = new Scene(prveOkno, 640, 480);
+		Scene scene2 = new Scene(pane, 640, 480);
 	
-		pane.getChildren().add(but);
+		prveOkno.getChildren().add(zacat);
 		pane.getChildren().add(label);
 		pane.getChildren().add(tfield);
 		
-		but.setText("Button");
+		zacat.setText("Zacat.");
 		
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
-		but.setOnAction(e -> {
-			tfield.clear(); 
-			tfield.appendText("Hello World");
+		zacat.setOnAction(e -> {
+			primaryStage.setScene(scene2);
+			primaryStage.show();
 		});
 	}
 

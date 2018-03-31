@@ -11,6 +11,6 @@ public class LokalnyTurnaj extends Turnaj implements RegistraciaDoTurnaju{
 	}
 
 	public void registracia(HracVSach ucastnik) {
-		((Ziak) ucastnik).registrujSaDoLTurnaju(this);
+		((Ziak) ucastnik).registrujSaDoTurnaju(this);
 	}
 }

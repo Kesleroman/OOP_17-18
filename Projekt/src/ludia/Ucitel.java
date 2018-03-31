@@ -2,6 +2,7 @@ package ludia;
 
 import udalosti.LokalnyTurnaj;
 import urovne.Majster;
+import urovne.Uroven;
 
 public class Ucitel extends HracVSach implements CastKruzku{
 	

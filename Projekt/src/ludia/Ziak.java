@@ -1,6 +1,7 @@
 package ludia;
 
 import udalosti.LokalnyTurnaj;
+import urovne.Uroven;
 
 public class Ziak extends HracVSach implements CastKruzku{
 	
@@ -8,7 +9,11 @@ public class Ziak extends HracVSach implements CastKruzku{
 		super(meno, priezvisko);
 	}
 	
-	public void registrujSaDoLTurnaju(LokalnyTurnaj lTurnaj) {
+	public Ziak(String meno, String priezvisko, Uroven uroven){
+		super(meno, priezvisko, uroven);
+	}
+	
+	public void registrujSaDoTurnaju(LokalnyTurnaj lTurnaj) {
 		lTurnaj.pridatUcastnika(this);
 	}
 }
