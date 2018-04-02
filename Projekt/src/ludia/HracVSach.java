@@ -20,7 +20,7 @@ public class HracVSach {
 	}
 	
 	public String toString() {
-		return meno +" "+ priezvisko +" "+ uroven.getRating();
+		return meno +" "+ priezvisko +" ("+ uroven.getRating() + ")";
 	}
 	
 	public void setUroven(Uroven u) {

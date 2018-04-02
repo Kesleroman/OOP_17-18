@@ -1,4 +1,4 @@
-package ludia;
+package kruzok;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,6 +13,14 @@ public class Skupina implements CastKruzku, Iterable<CastKruzku>{
 	
 	public int pocetZiakov(){
 		return skupina.size();
+	}
+	
+	public String toString() {
+		String str = new String();
+		for(CastKruzku cast : skupina) {
+			str = str.concat("\t" + cast.toString() + "\n");
+		}
+		return str;
 	}
 
 	public Iterator<CastKruzku> iterator() {

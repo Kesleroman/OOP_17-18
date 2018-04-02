@@ -1,4 +1,4 @@
-package ludia;
+package kruzok;
 
 public interface CastKruzku {
 }
