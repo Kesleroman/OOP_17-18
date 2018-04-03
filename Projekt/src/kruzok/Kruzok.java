@@ -27,6 +27,11 @@ public class Kruzok implements CastKruzku{
 	}
 	
 	public String toString() {
-		return "Kruzok:\n" + ucitelia.toString();
+		String str = new String("Kruzok:\n");
+		
+		for(CastKruzku ucitel : ucitelia) {
+			str = str.concat("\t" + ucitel.toString() + "\n\tSkupina:\n" + ((Ucitel) ucitel).getSkupina().toString() + "\n");
+		}
+		return str;
 	}
 }

@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.FlowPane;
 import kruzok.CastKruzku;
 import kruzok.Kruzok;
+import ludia.HracVSach;
 import ludia.Ucitel;
 import ludia.Ziak;
 import udalosti.ExternyTurnaj;
@@ -49,9 +50,9 @@ public class HlavnaScena {
 		exTurnaj.setOnAction(e ->{
 			ExternyTurnaj turnaj = SachovaFederacia.vytvoritTurnaj();
 			for(CastKruzku ucitel : kruzok.ucitelia) {
-				((Ucitel) ucitel).registrujSaDoTurnaju(turnaj);
+				((HracVSach) ucitel).registrujSaDoTurnaju(turnaj);
 				for(CastKruzku ziak : ((Ucitel) ucitel).getSkupina()) {
-					((Ziak) ziak).registrujSaDoTurnaju(turnaj);
+					((HracVSach) ziak).registrujSaDoTurnaju(turnaj);
 				}
 			}
 			Main.primaryStage.setScene(ScenaTurnaj.vytvoritTurnaj(turnaj));

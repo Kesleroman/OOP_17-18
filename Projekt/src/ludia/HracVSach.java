@@ -3,7 +3,7 @@ package ludia;
 import udalosti.ExternyTurnaj;
 import urovne.Uroven;
 
-public class HracVSach {
+public abstract class HracVSach {
 	private String meno;
 	private String priezvisko;
 	private Uroven uroven;
@@ -25,6 +25,10 @@ public class HracVSach {
 	
 	public void setUroven(Uroven u) {
 		this.uroven = u;
+	} 
+	
+	public Uroven getUroven(){
+		return this.uroven;
 	}
 	
 	public int getRating() {

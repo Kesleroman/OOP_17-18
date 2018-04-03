@@ -15,7 +15,7 @@ public class Ucitel extends HracVSach implements CastKruzku{
 	}
 	
 	public String toString() {
-		return "Ucitel " + super.toString() + " Skupina: \n" + skupina.toString();
+		return "Ucitel " + super.toString();
 	}
 	
 	public void priraditSkupinu(Skupina s) {

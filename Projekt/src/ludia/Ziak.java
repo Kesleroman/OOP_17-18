@@ -6,6 +6,7 @@ import udalosti.LokalnyTurnaj;
 import urovne.Uroven;
 
 public class Ziak extends HracVSach implements CastKruzku{
+    public boolean registraciaDoTurnaju = false;
 	
 	public Ziak(String meno, String priezvisko) {
 		super(meno, priezvisko);
@@ -20,7 +21,8 @@ public class Ziak extends HracVSach implements CastKruzku{
 	}
 	
 	public void registrujSaDoTurnaju(ExternyTurnaj externyTurnaj) {
-		//TODO Podmienka
-		externyTurnaj.pridatUcastnika(this);
+		if(registraciaDoTurnaju) {
+			externyTurnaj.pridatUcastnika(this);
+		}
 	}
 }

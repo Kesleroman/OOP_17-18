@@ -9,7 +9,7 @@ import udalosti.PriebehTurnaju;
 import udalosti.Turnaj;
 
 public class ScenaTurnaj{
-	static Scene vytvoritTurnaj(Turnaj turnaj){
+	public static Scene vytvoritTurnaj(Turnaj turnaj){
 		PriebehTurnaju priebeh = new PriebehTurnaju(turnaj);
 		FlowPane pane = new FlowPane();
 		Scene scene = new Scene(pane, 640, 480);

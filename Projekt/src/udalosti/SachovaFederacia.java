@@ -3,6 +3,7 @@ package udalosti;
 import java.util.ArrayList;
 
 import ludia.HracVSach;
+import ludia.Ziak;
 import urovne.Majster;
 
 public abstract class SachovaFederacia {
@@ -14,7 +15,7 @@ public abstract class SachovaFederacia {
 		ArrayList<HracVSach> temp = new ArrayList<HracVSach>(pocetUcastnikov);
 		
 		for(int i = 0; i < pocetUcastnikov; ++i) {
-			temp.add(new HracVSach( i +" Roman", "Slonskyi", new Majster(2500 + (int)(100 * Math.random()))));
+			temp.add(new Ziak( i +" Roman", "Slonskyi", new Majster(2500 + (int)(100 * Math.random()))));
 			//TODO: Random levels, names.
 		}
 		

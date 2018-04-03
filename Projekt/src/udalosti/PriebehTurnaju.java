@@ -28,7 +28,7 @@ public class PriebehTurnaju {
 		this.turnaj = turnaj;
 		this.pocetKol = pocetKol;
 		pocetSkupin = (int)Math.ceil((double)turnaj.ucastnici.size() / HRACOV_V_SKUPINE);
-		
+	
 		vytvoritPoleVysledkov();
 	}
 	
@@ -126,7 +126,7 @@ public class PriebehTurnaju {
 		return 1/(1 + Math.abs(ratingA-ratingB)/40);
 	}
 	
-	public void hra1na1(HracVSach hrac1, HracVSach hrac2){
+	private void hra1na1(HracVSach hrac1, HracVSach hrac2){
 		Random rnd = new Random();
 		int sancaVyhry = 50 + (hrac1.getRating() - hrac2.getRating())/10;
 		int r = rnd.nextInt(101);
@@ -143,7 +143,7 @@ public class PriebehTurnaju {
 		}
 	}
 	
-	public void zvysitRating(HracVSach hrac1, HracVSach hrac2, int vysledok) {
+	private void zvysitRating(HracVSach hrac1, HracVSach hrac2, int vysledok) {
 		int koeficient1 = hrac1.getRating() >= 2400 ? 10 : 20,
 			koeficient2 = hrac2.getRating() >= 2400 ? 10 : 20,
 			novyRating1, novyRating2;
@@ -177,7 +177,6 @@ public class PriebehTurnaju {
 				 hrac2 = i.next();// TODO: Ak je neparny pocet hracov. try catch? 
 				 hra1na1(hrac1, hrac2);
 			}
-			
 		}
 	}
 	
@@ -198,5 +197,9 @@ public class PriebehTurnaju {
 			hra();
 		}
 		sortovanie();
+		
+		if(turnaj instanceof LokalnyTurnaj) {
+			((LokalnyTurnaj) turnaj).povolitSaZucastnitVETurnaji();
+		}
 	}
 }
