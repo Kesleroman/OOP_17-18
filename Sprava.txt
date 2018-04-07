@@ -1,0 +1,20 @@
+Splnil som nasledujucie podmienky programu:
+
+-dedenie:
+	   -> Ucitel
+HracVSach 
+	   -> Ziak
+
+-agregacia:
+
+	class Turnaj ma ArrayList "ucastnici"
+
+-polymorfizmus
+	
+	Triedy, ktore su zotpovedne za turnaje, implementuju rozhranie RegistraciaDoTurnaju.
+	Toto rozhranie ma metodu 'registracia', ktora ma registrovat hracov do turnaju. Hracom moze byt bud Ucitel alebo Ziak.
+
+-oddelenie logiky od GUI:
+
+	balicek 'gui' - GUI
+	Trieda Kruzok a PriebehTurnaju - Aplikacna logika
