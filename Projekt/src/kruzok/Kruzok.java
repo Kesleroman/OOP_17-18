@@ -21,8 +21,8 @@ public class Kruzok implements CastKruzku{
 				skupina2 = new Skupina();
 		
 		for(int i = 0; i < 10; ++i) {
-			skupina1.pridatDoSkupina(new Ziak("Meno", "Priezvisko", new Novacik(1000 + (int)(100 * Math.random() ))));
-			skupina2.pridatDoSkupina(new Ziak("Meno", "Priezvisko", new Novacik(1000 + (int)(100 * Math.random() ))));
+			skupina1.pridatDoSkupina(new Ziak("Meno", "Priezvisko", new Novacik(1550 + (int)(100 * Math.random() ))));
+			skupina2.pridatDoSkupina(new Ziak("Meno", "Priezvisko", new Novacik(1550 + (int)(100 * Math.random() ))));
 		}
 		
 		u1.priraditSkupinu(skupina1);

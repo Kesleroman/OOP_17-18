@@ -1,6 +1,8 @@
 package ludia;
 
 import udalosti.ExternyTurnaj;
+import udalosti.LokalnyTurnajPreNovacikov;
+import udalosti.LokalnyTurnajPrePokrocilych;
 import urovne.Uroven;
 
 public abstract class HracVSach {
@@ -39,8 +41,9 @@ public abstract class HracVSach {
 		uroven.setRating(rating);
 	}
 
-	public void registrujSaDoTurnaju(ExternyTurnaj externyTurnaj) {
-		externyTurnaj.pridatUcastnika(this);
-	}
+	public abstract void registrujSaDoTurnaju(ExternyTurnaj externyTurnaj);
+	public abstract void registrujSaDoTurnaju(LokalnyTurnajPrePokrocilych lokalnyTurnaj);
+	public abstract void registrujSaDoTurnaju(LokalnyTurnajPreNovacikov lokalnyTurnaj);
+
 }
 

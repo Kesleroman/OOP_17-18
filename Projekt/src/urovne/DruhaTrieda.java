@@ -9,5 +9,4 @@ public class DruhaTrieda extends Uroven{
 	public String toString() {
 		return "Druha Trieda";
 	}
-
 }

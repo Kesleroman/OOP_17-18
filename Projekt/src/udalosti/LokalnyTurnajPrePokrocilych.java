@@ -2,10 +2,14 @@ package udalosti;
 
 import ludia.HracVSach;
 import ludia.Ziak;
+import urovne.DruhaTrieda;
 
-public class LokalnyTurnaj extends Turnaj implements RegistraciaDoTurnaju{
+public class LokalnyTurnajPrePokrocilych extends Turnaj{
+	private DruhaTrieda minUroven = new DruhaTrieda(1600);
+	
 	public void registracia(HracVSach ucastnik) {
-		((Ziak) ucastnik).registrujSaDoTurnaju(this);
+		if(ucastnik.getUroven().compareTo(minUroven) >= 0)
+			ucastnik.registrujSaDoTurnaju(this);
 	}
 	
 	public void povolitSaZucastnitVETurnaji() {

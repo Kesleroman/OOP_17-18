@@ -1,8 +1,8 @@
 package urovne;
 
-public class TretieTrieda extends Uroven {
+public class TretiaTrieda extends Uroven {
 	
-	public TretieTrieda(int rating) {
+	public TretiaTrieda(int rating) {
 		super(rating);
 	}
 

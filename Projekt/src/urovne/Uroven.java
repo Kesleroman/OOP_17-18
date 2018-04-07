@@ -1,6 +1,6 @@
 package urovne;
 
-public abstract class Uroven {
+public abstract class Uroven implements Comparable<Uroven>{
 	private int rating;
 	
 	public Uroven(int rating){
@@ -17,4 +17,7 @@ public abstract class Uroven {
 
 	public abstract String toString();
 	
+	public int compareTo(Uroven u) {
+		return this.rating > u.getRating() ? 1 : this.rating < u.getRating() ? -1 : 0 ;
+	}
 }

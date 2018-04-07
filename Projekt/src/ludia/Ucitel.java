@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import kruzok.CastKruzku;
 import kruzok.Skupina;
-import udalosti.LokalnyTurnaj;
+import udalosti.ExternyTurnaj;
+import udalosti.LokalnyTurnajPreNovacikov;
+import udalosti.LokalnyTurnajPrePokrocilych;
 import urovne.Majster;
 
 public class Ucitel extends HracVSach implements CastKruzku{
@@ -28,8 +30,8 @@ public class Ucitel extends HracVSach implements CastKruzku{
 		return this.skupina;
 	}
 	
-	public LokalnyTurnaj vytvoritTurnaj() {
-		LokalnyTurnaj turnaj = new LokalnyTurnaj();
+	public LokalnyTurnajPrePokrocilych vytvoritTurnaj() {
+		LokalnyTurnajPrePokrocilych turnaj = new LokalnyTurnajPrePokrocilych();
 		
 		for(CastKruzku ucastnik : skupina) {
 			turnaj.registracia( (Ziak)ucastnik );
@@ -45,5 +47,10 @@ public class Ucitel extends HracVSach implements CastKruzku{
 		
 		return arr;
 	}
-	
+
+	public void registrujSaDoTurnaju(ExternyTurnaj externyTurnaj) {
+		externyTurnaj.pridatUcastnika(this);
+	}
+	public void registrujSaDoTurnaju(LokalnyTurnajPrePokrocilych lokalnyTurnaj) {}
+	public void registrujSaDoTurnaju(LokalnyTurnajPreNovacikov lokalnyTurnaj) {}
 }

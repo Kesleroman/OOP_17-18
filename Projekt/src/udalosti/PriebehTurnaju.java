@@ -198,8 +198,8 @@ public class PriebehTurnaju {
 		}
 		sortovanie();
 		
-		if(turnaj instanceof LokalnyTurnaj) {
-			((LokalnyTurnaj) turnaj).povolitSaZucastnitVETurnaji();
+		if(turnaj instanceof LokalnyTurnajPrePokrocilych) {
+			((LokalnyTurnajPrePokrocilych) turnaj).povolitSaZucastnitVETurnaji();
 		}
 	}
 }

@@ -12,6 +12,8 @@ import kruzok.Kruzok;
 import ludia.HracVSach;
 import ludia.Ucitel;
 import udalosti.ExternyTurnaj;
+import udalosti.LokalnyTurnajPreNovacikov;
+import udalosti.LokalnyTurnajPrePokrocilych;
 import udalosti.SachovaFederacia;
 import udalosti.Turnaj;
 
@@ -42,9 +44,17 @@ public class HlavnaScena {
 		});
 		
 		lokTurnaj.setOnAction(e ->{
-			for(CastKruzku cast: kruzok.ucitelia) {
-				Turnaj turnaj = ((Ucitel) cast).vytvoritTurnaj();
-				Main.primaryStage.setScene(ScenaTurnaj.vytvoritTurnaj(turnaj)); // TODO 
+			ArrayList<HracVSach> hraci = new ArrayList<>(kruzok.vybratHracov());
+			ArrayList<Turnaj> arr = new ArrayList<>();
+			arr.add(new LokalnyTurnajPreNovacikov());
+			arr.add(new LokalnyTurnajPrePokrocilych());
+			
+			for(HracVSach ucastnik : hraci) {
+				arr.get(0).registracia(ucastnik);
+				arr.get(1).registracia(ucastnik);
+			}
+			for(Turnaj turnaj : arr) {
+				Main.primaryStage.setScene(ScenaTurnaj.vytvoritTurnaj(turnaj)); // TODO
 			}
 		});
 		
