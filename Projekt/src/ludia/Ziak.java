@@ -1,5 +1,7 @@
 package ludia;
 
+import java.util.ArrayList;
+
 import kruzok.CastKruzku;
 import udalosti.ExternyTurnaj;
 import udalosti.LokalnyTurnaj;
@@ -24,5 +26,11 @@ public class Ziak extends HracVSach implements CastKruzku{
 		if(registraciaDoTurnaju) {
 			externyTurnaj.pridatUcastnika(this);
 		}
+	}
+
+	public ArrayList<? extends HracVSach> vybratHracov() {
+		ArrayList<HracVSach> arr = new ArrayList<HracVSach>();
+		arr.add(this);
+		return arr;
 	}
 }

@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import ludia.HracVSach;
+
 public class Skupina implements CastKruzku, Iterable<CastKruzku>{
-	private List<CastKruzku> skupina = new ArrayList<>();
+	private ArrayList<CastKruzku> skupina = new ArrayList<>();
 	
 	public void pridatDoSkupina(CastKruzku cast){
 		skupina.add(cast);
@@ -25,5 +27,14 @@ public class Skupina implements CastKruzku, Iterable<CastKruzku>{
 
 	public Iterator<CastKruzku> iterator() {
 		return skupina.iterator();
+	}
+
+	public ArrayList<? extends HracVSach> vybratHracov() {
+		ArrayList<HracVSach> arr = new ArrayList<HracVSach>();
+		for(CastKruzku cast: skupina) {
+			arr.addAll(cast.vybratHracov());
+		}
+		
+		return arr;
 	}
 }

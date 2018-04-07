@@ -1,5 +1,7 @@
 package ludia;
 
+import java.util.ArrayList;
+
 import kruzok.CastKruzku;
 import kruzok.Skupina;
 import udalosti.LokalnyTurnaj;
@@ -34,6 +36,14 @@ public class Ucitel extends HracVSach implements CastKruzku{
 		}
 		
 		return turnaj;
+	}
+
+	public ArrayList<? extends HracVSach> vybratHracov() {
+		ArrayList<HracVSach> arr = new ArrayList<HracVSach>();
+		arr.addAll(skupina.vybratHracov());
+		arr.add(this);
+		
+		return arr;
 	}
 	
 }

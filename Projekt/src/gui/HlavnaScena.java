@@ -1,5 +1,7 @@
 package gui;
 
+import java.util.ArrayList;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -9,7 +11,6 @@ import kruzok.CastKruzku;
 import kruzok.Kruzok;
 import ludia.HracVSach;
 import ludia.Ucitel;
-import ludia.Ziak;
 import udalosti.ExternyTurnaj;
 import udalosti.SachovaFederacia;
 import udalosti.Turnaj;
@@ -49,11 +50,9 @@ public class HlavnaScena {
 		
 		exTurnaj.setOnAction(e ->{
 			ExternyTurnaj turnaj = SachovaFederacia.vytvoritTurnaj();
-			for(CastKruzku ucitel : kruzok.ucitelia) {
-				((HracVSach) ucitel).registrujSaDoTurnaju(turnaj);
-				for(CastKruzku ziak : ((Ucitel) ucitel).getSkupina()) {
-					((HracVSach) ziak).registrujSaDoTurnaju(turnaj);
-				}
+			ArrayList<HracVSach> hraci = new ArrayList<>(kruzok.vybratHracov());
+			for(HracVSach hrac: hraci) {
+				 hrac.registrujSaDoTurnaju(turnaj);
 			}
 			Main.primaryStage.setScene(ScenaTurnaj.vytvoritTurnaj(turnaj));
 		});

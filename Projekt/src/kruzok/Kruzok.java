@@ -1,5 +1,8 @@
 package kruzok;
 
+import java.util.ArrayList;
+
+import ludia.HracVSach;
 import ludia.Ucitel;
 import ludia.Ziak;
 import urovne.Novacik;
@@ -33,5 +36,12 @@ public class Kruzok implements CastKruzku{
 			str = str.concat("\t" + ucitel.toString() + "\n\tSkupina:\n" + ((Ucitel) ucitel).getSkupina().toString() + "\n");
 		}
 		return str;
+	}
+
+	public ArrayList<? extends HracVSach> vybratHracov() {
+		ArrayList<HracVSach> arr = new ArrayList<HracVSach>();
+		arr.addAll(ucitelia.vybratHracov());
+		
+		return arr;
 	}
 }
