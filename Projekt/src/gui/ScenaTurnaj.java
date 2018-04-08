@@ -21,7 +21,6 @@ public class ScenaTurnaj{
 		ScrollPane scrollPane = new ScrollPane(textArea);
 		
 		pane.getChildren().add(scrollPane);
-		pane.getChildren().add(naspat);
 		pane.getChildren().add(celyTurnaj);
 		
 		naspat.setText("Naspat");
@@ -35,6 +34,7 @@ public class ScenaTurnaj{
 		celyTurnaj.setOnAction(e -> {
 			priebeh.celyTurnaj();
 			pane.getChildren().add(vysledky);
+			pane.getChildren().add(naspat);
 			pane.getChildren().remove(celyTurnaj);
 		});
 		

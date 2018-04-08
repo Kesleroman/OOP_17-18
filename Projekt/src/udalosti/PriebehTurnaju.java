@@ -174,8 +174,12 @@ public class PriebehTurnaju {
 			HracVSach hrac1, hrac2;
 			while(i.hasNext()) {
 				 hrac1 = i.next();
-				 hrac2 = i.next();// TODO: Ak je neparny pocet hracov. try catch? 
-				 hra1na1(hrac1, hrac2);
+				 if(i.hasNext()){
+					 hrac2 = i.next(); 
+					 hra1na1(hrac1, hrac2);
+				 }
+				 else
+					 zapisatDoVysledkov(hrac1, null, 1); // ak nie je par, tak hrac ziskava bod.
 			}
 		}
 	}

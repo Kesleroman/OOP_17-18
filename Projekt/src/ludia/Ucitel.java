@@ -51,6 +51,6 @@ public class Ucitel extends HracVSach implements CastKruzku{
 	public void registrujSaDoTurnaju(ExternyTurnaj externyTurnaj) {
 		externyTurnaj.pridatUcastnika(this);
 	}
-	public void registrujSaDoTurnaju(LokalnyTurnajPrePokrocilych lokalnyTurnaj) {}
+	public void registrujSaDoTurnaju(LokalnyTurnajPrePokrocilych lokalnyTurnaj) {} // Ucitel nemoze sa zucastnit v lokalnom turnaji.
 	public void registrujSaDoTurnaju(LokalnyTurnajPreNovacikov lokalnyTurnaj) {}
 }

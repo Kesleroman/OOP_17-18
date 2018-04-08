@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 import ludia.HracVSach;
 import ludia.Ziak;
-import urovne.Majster;
+import random.NahodnaUroven;
+import random.NahodneMeno;
+import urovne.TretiaTrieda;
+import urovne.Uroven;
 
 public abstract class SachovaFederacia {
 	
@@ -12,13 +15,21 @@ public abstract class SachovaFederacia {
 	
 	private static ArrayList<HracVSach> vytvoritUcastnikovFederacie(){
 		int pocetUcastnikov = 48;
+		NahodneMeno meno = new NahodneMeno("Mena.txt");
+		NahodneMeno priezvisko = new NahodneMeno("Priezviska.txt");
 		ArrayList<HracVSach> temp = new ArrayList<HracVSach>(pocetUcastnikov);
 		
 		for(int i = 0; i < pocetUcastnikov; ++i) {
-			temp.add(new Ziak( i +" Roman", "Slonskyi", new Majster(2500 + (int)(100 * Math.random()))));
-			//TODO: Random levels, names.
+			Uroven u;
+			while(true) {
+				u = NahodnaUroven.vratNahodnuUroven();
+				if(u.compareTo(new TretiaTrieda()) >= 0) {
+					break;
+				}
+			}
+			temp.add(new Ziak( meno.vratNahodneMeno(), priezvisko.vratNahodneMeno(), u));
 		}
-		
+
 		return temp;
 	}
 	

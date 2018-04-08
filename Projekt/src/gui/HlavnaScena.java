@@ -7,15 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.FlowPane;
-import kruzok.CastKruzku;
 import kruzok.Kruzok;
 import ludia.HracVSach;
-import ludia.Ucitel;
 import udalosti.ExternyTurnaj;
 import udalosti.LokalnyTurnajPreNovacikov;
 import udalosti.LokalnyTurnajPrePokrocilych;
 import udalosti.SachovaFederacia;
-import udalosti.Turnaj;
 
 public class HlavnaScena {
 	private static Kruzok kruzok = new Kruzok();
@@ -23,18 +20,21 @@ public class HlavnaScena {
 	protected static Scene vytvoritHlavnuScenu() {
 		FlowPane pane = new FlowPane();
 		Scene scene = new Scene(pane, 640, 480);
-		Button lokTurnaj = new Button();
+		Button pLokTurnaj = new Button();
+		Button nLokTurnaj = new Button();
 		Button exTurnaj = new Button();
 		Button info = new Button();
 		TextArea textArea = new TextArea();
 		ScrollPane scrollPane = new ScrollPane(textArea);
 		
-		pane.getChildren().add(lokTurnaj);
+		pane.getChildren().add(nLokTurnaj);
+		pane.getChildren().add(pLokTurnaj);
 		pane.getChildren().add(exTurnaj);
 		pane.getChildren().add(info);
 		pane.getChildren().add(scrollPane);
 		
-		lokTurnaj.setText("Lokalny turnaj");
+		nLokTurnaj.setText("Lokalny turnaj (Novaciky)");
+		pLokTurnaj.setText("Lokalny turnaj (Pokrocili)");
 		exTurnaj.setText("Externy turnaj");
 		info.setText("Informacia o kruzku");
 		
@@ -43,19 +43,24 @@ public class HlavnaScena {
 			textArea.appendText(kruzok.toString());
 		});
 		
-		lokTurnaj.setOnAction(e ->{
+		nLokTurnaj.setOnAction(e ->{
 			ArrayList<HracVSach> hraci = new ArrayList<>(kruzok.vybratHracov());
-			ArrayList<Turnaj> arr = new ArrayList<>();
-			arr.add(new LokalnyTurnajPreNovacikov());
-			arr.add(new LokalnyTurnajPrePokrocilych());
+			LokalnyTurnajPreNovacikov turnaj = new LokalnyTurnajPreNovacikov();
 			
-			for(HracVSach ucastnik : hraci) {
-				arr.get(0).registracia(ucastnik);
-				arr.get(1).registracia(ucastnik);
-			}
-			for(Turnaj turnaj : arr) {
-				Main.primaryStage.setScene(ScenaTurnaj.vytvoritTurnaj(turnaj)); // TODO
-			}
+			for(HracVSach ucastnik : hraci)
+				turnaj.registracia(ucastnik);
+
+			Main.primaryStage.setScene(ScenaTurnaj.vytvoritTurnaj(turnaj)); 
+		});
+		
+		pLokTurnaj.setOnAction(e ->{
+			ArrayList<HracVSach> hraci = new ArrayList<>(kruzok.vybratHracov());
+			LokalnyTurnajPrePokrocilych turnaj = new LokalnyTurnajPrePokrocilych();
+			
+			for(HracVSach ucastnik : hraci)
+				turnaj.registracia(ucastnik);
+
+			Main.primaryStage.setScene(ScenaTurnaj.vytvoritTurnaj(turnaj)); 
 		});
 		
 		exTurnaj.setOnAction(e ->{

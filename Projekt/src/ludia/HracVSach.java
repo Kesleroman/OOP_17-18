@@ -44,6 +44,5 @@ public abstract class HracVSach {
 	public abstract void registrujSaDoTurnaju(ExternyTurnaj externyTurnaj);
 	public abstract void registrujSaDoTurnaju(LokalnyTurnajPrePokrocilych lokalnyTurnaj);
 	public abstract void registrujSaDoTurnaju(LokalnyTurnajPreNovacikov lokalnyTurnaj);
-
 }
 

@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import ludia.HracVSach;
 import ludia.Ucitel;
 import ludia.Ziak;
-import urovne.Novacik;
+import random.NahodnaUroven;
+import random.NahodneMeno;
 
 public class Kruzok implements CastKruzku{
-	public Skupina ucitelia = new Skupina();
+	private Skupina ucitelia = new Skupina();
 	
 	public Kruzok() {
+		NahodneMeno meno = new NahodneMeno("Mena.txt");
+		NahodneMeno priezvisko = new NahodneMeno("Priezviska.txt");
+		
 		Ucitel u1 = new Ucitel("Jaroslav", "Mudry"),
 				u2 = new Ucitel("Ondrej", "Mudry");
 		
@@ -21,8 +25,8 @@ public class Kruzok implements CastKruzku{
 				skupina2 = new Skupina();
 		
 		for(int i = 0; i < 10; ++i) {
-			skupina1.pridatDoSkupina(new Ziak("Meno", "Priezvisko", new Novacik(1550 + (int)(100 * Math.random() ))));
-			skupina2.pridatDoSkupina(new Ziak("Meno", "Priezvisko", new Novacik(1550 + (int)(100 * Math.random() ))));
+			skupina1.pridatDoSkupina(new Ziak(meno.vratNahodneMeno(), priezvisko.vratNahodneMeno(), NahodnaUroven.vratNahodnuUroven()));
+			skupina2.pridatDoSkupina(new Ziak(meno.vratNahodneMeno(), priezvisko.vratNahodneMeno(), NahodnaUroven.vratNahodnuUroven()));
 		}
 		
 		u1.priraditSkupinu(skupina1);
