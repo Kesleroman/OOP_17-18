@@ -16,7 +16,7 @@ public class Kruzok implements CastKruzku{
 		NahodneMeno priezvisko = new NahodneMeno("Priezviska.txt");
 		
 		Ucitel u1 = new Ucitel("Jaroslav", "Mudry"),
-				u2 = new Ucitel("Ondrej", "Mudry");
+			   u2 = new Ucitel("Ondrej", "Mudry");
 		
 		ucitelia.pridatDoSkupina(u1);
 		ucitelia.pridatDoSkupina(u2);

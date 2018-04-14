@@ -5,7 +5,7 @@ import udalosti.LokalnyTurnajPreNovacikov;
 import udalosti.LokalnyTurnajPrePokrocilych;
 import urovne.Uroven;
 
-public abstract class HracVSach {
+public abstract class HracVSach{
 	private String meno;
 	private String priezvisko;
 	private Uroven uroven;
