@@ -10,28 +10,8 @@ import random.NahodneMeno;
 
 public class Kruzok implements CastKruzku{
 	private Skupina ucitelia = new Skupina();
-	
-	public Kruzok() {
-		NahodneMeno meno = new NahodneMeno("Mena.txt");
-		NahodneMeno priezvisko = new NahodneMeno("Priezviska.txt");
-		
-		Ucitel u1 = new Ucitel("Jaroslav", "Mudry"),
-			   u2 = new Ucitel("Ondrej", "Mudry");
-		
-		ucitelia.pridatDoSkupina(u1);
-		ucitelia.pridatDoSkupina(u2);
-		
-		Skupina skupina1 = new Skupina(),
-				skupina2 = new Skupina();
-		
-		for(int i = 0; i < 10; ++i) {
-			skupina1.pridatDoSkupina(new Ziak(meno.vratNahodneMeno(), priezvisko.vratNahodneMeno(), NahodnaUroven.vratNahodnuUroven()));
-			skupina2.pridatDoSkupina(new Ziak(meno.vratNahodneMeno(), priezvisko.vratNahodneMeno(), NahodnaUroven.vratNahodnuUroven()));
-		}
-		
-		u1.priraditSkupinu(skupina1);
-		u2.priraditSkupinu(skupina2);
-	}
+	private NahodneMeno meno = new NahodneMeno("Mena.txt");
+	private NahodneMeno priezvisko = new NahodneMeno("Priezviska.txt");
 	
 	public String toString() {
 		String str = new String("Kruzok:\n");
@@ -44,6 +24,19 @@ public class Kruzok implements CastKruzku{
 	
 	public Skupina getUcitelia() {
 		return this.ucitelia;
+	}
+	
+	public void vytvoritSkupinu() {
+		Ucitel u = new Ucitel(meno.vratNahodneMeno(), priezvisko.vratNahodneMeno());
+		ucitelia.pridatDoSkupina(u);
+		
+		Skupina skupina = new Skupina();
+		
+		for(int i = 0; i < 10; ++i) {
+			skupina.pridatDoSkupina(new Ziak(meno.vratNahodneMeno(), priezvisko.vratNahodneMeno(), NahodnaUroven.vratNahodnuUroven()));
+		}
+		
+		u.priraditSkupinu(skupina);
 	}
 
 	public ArrayList<? extends HracVSach> vybratHracov() {

@@ -6,7 +6,7 @@ import kruzok.Kruzok;
 import kruzok.Skupina;
 import udalosti.PriebehTurnaju;
 
-public aspect HracVSachObserver {
+public aspect SkupinaObserver {
 	Kruzok kruzok = HlavnaScena.getKruzok();
 	
 	public void Skupina.upovedomPozorovatela(){

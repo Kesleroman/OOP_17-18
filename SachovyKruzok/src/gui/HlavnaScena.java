@@ -20,6 +20,23 @@ public class HlavnaScena {
 	public static Kruzok getKruzok() {
 		return HlavnaScena.kruzok;
 	}
+	
+	public static void vytvoritSkupiny(String vstup) throws NieJeVstup, NespravnyVstup {
+		if(vstup.isEmpty()) {
+			throw new NieJeVstup();
+		}
+		
+		try {
+			int pocetSkupin = Integer.parseInt(vstup);
+			
+			for(int i = 0; i < pocetSkupin; ++i) {
+				kruzok.vytvoritSkupinu();
+			}
+		}
+		catch(NumberFormatException e) {
+			throw new NespravnyVstup();
+		}
+	}
 
 	protected static Scene vytvoritHlavnuScenu() {
 		FlowPane pane = new FlowPane();
