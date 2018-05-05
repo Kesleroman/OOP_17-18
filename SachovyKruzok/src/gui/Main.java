@@ -5,13 +5,13 @@ import javafx.application.*;
 import javafx.geometry.HPos;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
+import vynimky.NespravnyVstup;
+import vynimky.NieJeVstup;
 
 public class Main extends Application{
 	protected static Stage primaryStage;
@@ -36,10 +36,17 @@ public class Main extends Application{
 		zacat.setText("Zacat.");
 		
 		zacat.setOnAction(e -> {
-			try {
-				HlavnaScena.vytvoritSkupiny(pocetSkupin.getText());
+			
+				Thread thread = new Thread(new Runnable() {
+					public void run() {
+						try {
+							HlavnaScena.vytvoritSkupiny(pocetSkupin.getText());
+						} catch (NieJeVstup | NespravnyVstup e1) {/* Osetrenie je v OsetrenieVynimiek.aj */}
+					}
+				});
+				thread.run();
+				
 				primaryStage.setScene(HlavnaScena.vytvoritHlavnuScenu() );
-			} catch (NieJeVstup | NespravnyVstup e1) {/* Osetrenie je v OsetrenieVynimiek.aj */}
 		});
 		
 		primaryStage.setScene(scene);

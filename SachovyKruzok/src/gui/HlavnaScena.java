@@ -13,6 +13,8 @@ import udalosti.ExternyTurnaj;
 import udalosti.LokalnyTurnajPreNovacikov;
 import udalosti.LokalnyTurnajPrePokrocilych;
 import udalosti.SachovaFederacia;
+import vynimky.NespravnyVstup;
+import vynimky.NieJeVstup;
 
 public class HlavnaScena {
 	private static Kruzok kruzok = new Kruzok();

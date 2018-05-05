@@ -1,12 +1,11 @@
-package gui;
+package vynimky;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
-import gui.NieJeVstup;
+import vynimky.NespravnyVstup;
+import vynimky.NieJeVstup;
 import gui.HlavnaScena;
 import java.lang.String;
-import gui.NespravnyVstup;
 
 public aspect OsetrenieVynimiek {
 	

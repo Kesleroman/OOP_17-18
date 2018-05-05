@@ -4,8 +4,8 @@ import ludia.HracVSach;
 import ludia.Ziak;
 import urovne.DruhaTrieda;
 
-public class LokalnyTurnajPrePokrocilych extends Turnaj{
-	private DruhaTrieda minUroven = new DruhaTrieda();
+public class LokalnyTurnajPrePokrocilych extends LokalnyTurnajPreNovacikov{
+	private final DruhaTrieda minUroven = new DruhaTrieda();
 	
 	public void registracia(HracVSach ucastnik) {
 		if(ucastnik.getUroven().compareTo(minUroven) >= 0)

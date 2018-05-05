@@ -1,9 +1,8 @@
-package ludia;
+package kruzok;
 
 import gui.HlavnaScena;
-import kruzok.CastKruzku;
-import kruzok.Kruzok;
-import kruzok.Skupina;
+import ludia.HracVSach;
+import ludia.Ucitel;
 import udalosti.PriebehTurnaju;
 
 public aspect SkupinaObserver {
@@ -34,6 +33,16 @@ public aspect SkupinaObserver {
 		
 		for(CastKruzku ucitel : ucitelia) {
 			((Ucitel) ucitel).obnovit();
+		}
+	}
+	
+	after(HracVSach hrac1, HracVSach hrac2): execution(* PriebehTurnaju.zmenitRating(..)) && args(hrac1, hrac2, double){
+		if(hrac1.getRating() < 0) {
+			hrac1.setRating(0);
+		}
+		
+		if(hrac2.getRating() < 0) {
+			hrac2.setRating(0);
 		}
 	}
 }
