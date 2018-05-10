@@ -16,7 +16,7 @@ public class Ucitel extends HracVSach implements CastKruzku{
 	
 	public Ucitel(String meno, String priezvisko) {
 		super(meno, priezvisko);
-		this.setUroven(new Majster(2500)); // TODO
+		this.setUroven(new Majster(2500));
 	}
 	
 	public String toString() {

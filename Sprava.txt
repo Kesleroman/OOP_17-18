@@ -18,3 +18,33 @@ HracVSach
 
 	balicek 'gui' - GUI
 	Trieda Kruzok a PriebehTurnaju - Aplikacna logika
+
+-zapuzdrenie
+
+-pouzitie navrhovych vzorov 
+	Composite - triedy Kruzok, Skupina, Ziak, Ucitel; rozhranie CastKruzku 
+	Observer - SkupinaObserver.aj
+	Visitor - triedy Turnaj, HracVSach
+
+-ošetrenie mimoriadnych stavov prostredníctvom vlastnıch vınimiek
+	balicek 'vynimky'
+
+- explicitné pouitie viacniovosti
+	Trieda Main, riadok 40
+
+- pouitie generickosti vo vlastnıch triedach
+	interface CastKruzku
+	
+- explicitné pouitie RTTI
+	Trieda PriebehTurnaju, riadok 220
+
+- pouitie vhniezdenıch tried a rozhraní
+	Trieda PriebehTurnaju, riadok 49
+	Trieda PriebehTurnaju, riadok 190
+
+- pouitie lambda vırazov (Trieda Main, riadok 38)
+	referencií na metódy (Trieda PriebehTurnaju, riadok 56)
+
+- pouitie aspektovo-orientovaného programovania (AspectJ)
+	SkupinaObserver.aj
+	OsetrenieVynimiek.aj

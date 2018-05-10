@@ -35,7 +35,8 @@ public aspect SkupinaObserver {
 			((Ucitel) ucitel).obnovit();
 		}
 	}
-	
+
+	 //Osetrenie toho, aby rating hraca nebol mensi ako 0.
 	after(HracVSach hrac1, HracVSach hrac2): execution(* PriebehTurnaju.zmenitRating(..)) && args(hrac1, hrac2, double){
 		if(hrac1.getRating() < 0) {
 			hrac1.setRating(0);

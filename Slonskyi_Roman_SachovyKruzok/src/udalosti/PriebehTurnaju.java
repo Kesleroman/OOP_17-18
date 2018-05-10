@@ -46,27 +46,17 @@ public class PriebehTurnaju {
 		}
 	}
 	
-	public String toString() {
-		String str = new String();
-		
-		for(HracVSach hrac : turnaj.ucastnici) {
-			str = str.concat(hrac.toString() + "\n");
-		}
-		
-		return str;
-	}
-	
 	private static class HracComparator{
 		public static int compare(HracVSach hrac1, HracVSach hrac2) {
 			return Integer.compare(hrac2.getRating(), hrac1.getRating());
 		}
 	}
 	
-	public void sortovanie() {
+	private void sortovanie() {
 		turnaj.ucastnici.sort(HracComparator::compare); //Na prvom mieste v poli bude hrac s najvyssim ratingom.
 	}
 	
-	public void vytvoritSkupiny() {
+	private void vytvoritSkupiny() {
 		skupiny = new ArrayList<>(POCET_SKUPIN);
 		for(int i = 0; i < POCET_SKUPIN; ++i) {
 			skupiny.add( new ArrayList<HracVSach>(HRACOV_V_SKUPINE) ) ;
@@ -85,7 +75,7 @@ public class PriebehTurnaju {
 		}
 	}
 	
-	public void vytvoritPary() {
+	private void vytvoritPary() {
 		for(ArrayList<HracVSach> arr: skupiny) {
 			Collections.shuffle(arr);
 		}
@@ -96,7 +86,7 @@ public class PriebehTurnaju {
 				for(ArrayList<Object> arr : vysledky) {
 					if(arr.contains(hrac1)) {
 						double val = ((Double) arr.get(1)).doubleValue();
-						arr.set(1, new Double(val + VYHRA)); //zvysit
+						arr.set(1, new Double(val + VYHRA)); //zvysime pocet bodov
 						break;
 					}
 				}
@@ -152,6 +142,7 @@ public class PriebehTurnaju {
 				novyRating1 = hrac1.getRating() + (int)((double)pocetBodov1 * (REMIZA - ocakavanyPocetBodov));
 				novyRating2 = hrac2.getRating() + (int)((double)pocetBodov2 * (REMIZA - ocakavanyPocetBodov));
 		}
+		
 		hrac1.setRating(novyRating1);
 		hrac2.setRating(novyRating2);
 	}
@@ -189,6 +180,10 @@ public class PriebehTurnaju {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return retazec vysledkov hracov v tvare: "Meno + Body: cislo".
+	 */
 	public String vysledky() {
 		String str = new String();
 		
@@ -210,6 +205,9 @@ public class PriebehTurnaju {
 		return str;
 	}
 	
+	/**
+	 * Priebehnutie celeho turnaju.
+	 */
 	public void celyTurnaj() {
 		for(int kolo = 0; kolo < POCET_KOL; ++kolo) {
 			sortovanie();
@@ -220,7 +218,7 @@ public class PriebehTurnaju {
 		sortovanie();
 		
 		if(turnaj instanceof LokalnyTurnajPrePokrocilych) {
-			((LokalnyTurnajPrePokrocilych) turnaj).povolitSaZucastnitVETurnaji(); //TODO zmenit
+			((LokalnyTurnajPrePokrocilych) turnaj).povolitSaZucastnitVETurnaji();
 		}
 	}
 }
