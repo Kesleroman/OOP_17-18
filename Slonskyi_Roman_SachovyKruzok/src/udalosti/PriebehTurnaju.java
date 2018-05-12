@@ -164,7 +164,7 @@ public class PriebehTurnaju {
 		}
 	}
 	
-	public void hra() {
+	private void hra() {
 		for(ArrayList<HracVSach> skupina: skupiny) {
 			Iterator<HracVSach> i = skupina.iterator();
 			HracVSach hrac1, hrac2;
@@ -181,8 +181,8 @@ public class PriebehTurnaju {
 	}
 	
 	/**
-	 * 
-	 * @return retazec vysledkov hracov v tvare: "Meno + Body: cislo".
+	 * Vrati vysledky turnaju.
+	 * @return String v tvare: "Meno + Body: cislo".
 	 */
 	public String vysledky() {
 		String str = new String();

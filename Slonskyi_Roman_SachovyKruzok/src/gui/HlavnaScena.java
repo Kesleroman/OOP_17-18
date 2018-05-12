@@ -16,6 +16,9 @@ import udalosti.SachovaFederacia;
 import vynimky.NespravnyVstup;
 import vynimky.NieJeVstup;
 
+/**
+ * Trieda HlavnaScena je zotpovedna za manipulaciu Kruzkom.
+ */
 public class HlavnaScena {
 	private static Kruzok kruzok = new Kruzok();
 	
@@ -23,8 +26,9 @@ public class HlavnaScena {
 		return HlavnaScena.kruzok;
 	}
 	
-	public static void vytvoritSkupiny(String vstup) throws NieJeVstup, NespravnyVstup {
+	protected static void vytvoritSkupiny(String vstup) throws NieJeVstup, NespravnyVstup {
 		if(vstup.isEmpty()) {
+			Main.vynimka = true;
 			throw new NieJeVstup();
 		}
 		
@@ -36,6 +40,7 @@ public class HlavnaScena {
 			}
 		}
 		catch(NumberFormatException e) {
+			Main.vynimka = true;
 			throw new NespravnyVstup();
 		}
 	}

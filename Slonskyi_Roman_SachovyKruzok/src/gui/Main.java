@@ -13,7 +13,11 @@ import javafx.stage.Stage;
 import vynimky.NespravnyVstup;
 import vynimky.NieJeVstup;
 
+/**
+ * Trieda Main je zodpovedna za start celeho programu. 
+ */
 public class Main extends Application{
+	protected static boolean vynimka;
 	protected static Stage primaryStage;
 	
 	public void start(Stage primaryStage) throws Exception {
@@ -36,17 +40,26 @@ public class Main extends Application{
 		zacat.setText("Zacat.");
 		
 		zacat.setOnAction(e -> {
+			class Nit extends Thread{
+				public void run() {
+					try {
+						HlavnaScena.vytvoritSkupiny(pocetSkupin.getText());
+					} catch (NieJeVstup | NespravnyVstup e1) {/* Osetrenie je v OsetrenieVynimiek.aj */}
+				}
+			}
 			
-				Thread thread = new Thread(new Runnable() {
-					public void run() {
-						try {
-							HlavnaScena.vytvoritSkupiny(pocetSkupin.getText());
-						} catch (NieJeVstup | NespravnyVstup e1) {/* Osetrenie je v OsetrenieVynimiek.aj */}
-					}
-				});
-				thread.run();
-				
-				primaryStage.setScene(HlavnaScena.vytvoritHlavnuScenu() );
+			Nit nit = new Nit();
+			nit.run();
+			
+			Scene hScena = HlavnaScena.vytvoritHlavnuScenu();
+			while(nit.isAlive()) {
+				Thread.yield();
+			}
+			
+			if(!vynimka){
+				primaryStage.setScene(hScena);
+			}
+			vynimka = false;
 		});
 		
 		primaryStage.setScene(scene);

@@ -2,13 +2,12 @@ package ludia;
 
 import java.util.ArrayList;
 
-import kruzok.CastKruzku;
 import udalosti.ExternyTurnaj;
 import udalosti.LokalnyTurnajPreNovacikov;
 import udalosti.LokalnyTurnajPrePokrocilych;
 import urovne.Uroven;
 
-public class Ziak extends HracVSach implements CastKruzku{
+public class Ziak extends HracVSach {
     public boolean registraciaDoTurnaju = false;
 	
 	public Ziak(String meno, String priezvisko) {

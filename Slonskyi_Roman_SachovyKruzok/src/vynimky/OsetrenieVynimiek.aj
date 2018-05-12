@@ -16,15 +16,15 @@ public aspect OsetrenieVynimiek {
 		 }
 		 catch(NieJeVstup e1) {
 			 Alert alert = new Alert(AlertType.ERROR);
-				alert.setTitle("Chyba!");
-				alert.setContentText("Nie je vstup!");
-				alert.showAndWait();
+			 alert.setTitle("Chyba!");
+			 alert.setContentText("Nie je vstup!");
+			 alert.showAndWait();
 		 }
 		 catch(NespravnyVstup e2) {
 			 Alert alert = new Alert(AlertType.ERROR);
-				alert.setTitle("Chyba!");
-				alert.setContentText("Nespravny vstup!");
-				alert.showAndWait();
+			 alert.setTitle("Chyba!");
+			 alert.setContentText("Nespravny vstup!");
+			 alert.showAndWait();
 		 }
 	}
 }

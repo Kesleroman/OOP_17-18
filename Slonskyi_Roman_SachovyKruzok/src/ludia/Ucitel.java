@@ -10,7 +10,7 @@ import udalosti.LokalnyTurnajPreNovacikov;
 import udalosti.LokalnyTurnajPrePokrocilych;
 import urovne.Majster;
 
-public class Ucitel extends HracVSach implements CastKruzku{
+public class Ucitel extends HracVSach {
 	
 	private Skupina skupina;
 	

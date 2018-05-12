@@ -16,11 +16,14 @@ public aspect SkupinaObserver {
 		this.getUroven().zvysitUroven(this);
 	}
 	
+	/**
+	 * Zvysi uroven Ziaka ak jeho rating presiahne urcitu hranicu.
+	 */
 	public void Ucitel.obnovit(){
 		Skupina skupina = this.getSkupina();
 		for(CastKruzku hrac : skupina) {
 			int rating = ((HracVSach) hrac).getRating(),
-				maxRating = ((HracVSach) hrac).getUroven().MAX_Rating;
+				maxRating = ((HracVSach) hrac).getUroven().getMAX();
 			
 			if(rating > maxRating) {
 				((HracVSach) hrac).zvysitUroven();

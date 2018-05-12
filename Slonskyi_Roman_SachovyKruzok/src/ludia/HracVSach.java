@@ -1,11 +1,12 @@
 package ludia;
 
+import kruzok.CastKruzku;
 import udalosti.ExternyTurnaj;
 import udalosti.LokalnyTurnajPreNovacikov;
 import udalosti.LokalnyTurnajPrePokrocilych;
 import urovne.Uroven;
 
-public abstract class HracVSach{
+public abstract class HracVSach implements CastKruzku{
 	private String meno;
 	private String priezvisko;
 	private Uroven uroven;

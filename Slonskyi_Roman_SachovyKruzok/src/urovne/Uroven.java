@@ -3,12 +3,19 @@ package urovne;
 import ludia.HracVSach;
 
 public abstract class Uroven implements Comparable<Uroven>{
-	public int MAX_Rating ;
-	
-	protected int rating;
+	private int MAX_Rating ;
+	private int rating;
 	
 	public Uroven(int rating){
 		this.rating = rating;
+	}
+	
+	public int getMAX(){
+		return MAX_Rating;	
+	}
+	
+	public int setMAX(int value){
+		return MAX_Rating;
 	}
 	
 	public int getRating() {

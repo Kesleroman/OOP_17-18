@@ -3,16 +3,16 @@ package urovne;
 import ludia.HracVSach;
 
 public class StvrtaTrieda extends Uroven {
-	public final static int MIN_Rating = 1000;
+	private final static int MIN_Rating = 1000;
 	
 	public StvrtaTrieda(int rating) {
 		super(rating);
-		MAX_Rating = 1399;
+		setMAX(1399);
 	}
 	
 	public StvrtaTrieda() {
 		super(MIN_Rating);
-		MAX_Rating = 1399;
+		setMAX(1399);
 	}
 
 	public String toString() {
@@ -20,6 +20,6 @@ public class StvrtaTrieda extends Uroven {
 	}
 	
 	public void zvysitUroven(HracVSach hrac) {
-		hrac.setUroven(new TretiaTrieda(this.rating));
+		hrac.setUroven(new TretiaTrieda(this.getRating()));
 	}
 }
